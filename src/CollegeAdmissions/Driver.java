@@ -128,6 +128,7 @@ public Driver() {}
 	    while (it.hasNext()) {
 	        Map.Entry pair = (Map.Entry)it.next();
 	        out.print(pair.getKey().toString());
+	         out.print(',');
 	        out.print(pair.getValue().toString());
 	        out.println();
 	        it.remove(); // avoids a ConcurrentModificationException
