@@ -50,7 +50,7 @@ public class DecisionEngine  {
 		{
 			System.out.println(i.getFname() + " " + i.getLname() + " "
 					+ "can't come to school because they are a crook!" );
-			
+			  i.setRejected("UNREHABILITATED FELON");
 			  dinged.add(i);
 			  dingedwithReason.put(i,"APPLICATION IS NONREHABILITATED FELON");
 			  continue;
@@ -62,6 +62,7 @@ public class DecisionEngine  {
 			System.out.println(i.getFname() + " " + i.getLname() + " "
 					+ "can't come to school because they are not born yet!" );
 			  dinged.add(i);
+			  i.setRejected("INVALID AGE");
 			  dingedwithReason.put(i,"APPLICATION INVALID - AGE");
 			  continue;
 		}
@@ -69,7 +70,9 @@ public class DecisionEngine  {
 		   {
 			  System.out.println(i.getFname() + " " + i.getLname() + " "
 					+ "can't come to school because they aren't qualified!" );
+			  i.setRejected("UNQUALIFIED");
 			  dinged.add(i);
+			  
 			  dingedwithReason.put(i,"APPLICANT IS NOT QUALIFIED");
 			  continue;
 		   }
@@ -80,7 +83,8 @@ public class DecisionEngine  {
 				i.getFname().substring(1).equals(i.getFname().substring(1).toLowerCase()) != true )
 		   {
 		System.out.println(i.getFname() + " " + i.getLname() + " "
-		+ "can't come to school because they don't have a proper name!" );  		
+		+ "can't come to school because they don't have a proper name!" );  	
+		  i.setRejected("INVALID NAME");
 			 dinged.add(i);
 			  dingedwithReason.put(i,"APPLICATION INVALID - NAME");
 
@@ -104,7 +108,7 @@ public class DecisionEngine  {
 			if( 
 				i.getGrades().getScale()/ i.getGrades().getGpa() >= minAutoGPA && 
 				(
-				   i.getResidence().name() == "CALIFORINA" && i.getAge() <= isCollegeAgeMax && i.getAge() >= isCollegeAgeMin||
+				   i.getResidence().name().contains("CALIFORNIA")&& i.getAge() <= isCollegeAgeMax && i.getAge() >= isCollegeAgeMin||
 				   i.getAge() >= senior
 				   )
 				// Must have taken at least one test to be accepted. The iterator will 

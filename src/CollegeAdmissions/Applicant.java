@@ -11,6 +11,7 @@ public class Applicant {
 	private ArrayList<TestScore> testScores;
 	private CriminalHistory history;
 	private Residence residence;
+	private String rejected; 
 	
 // Constructor 
 public Applicant (String Fname,
@@ -19,7 +20,8 @@ public Applicant (String Fname,
 		               Grades grades, 
 		               ArrayList<TestScore> testScores,
 		               CriminalHistory history,
-		               Residence residence)
+		               Residence residence,
+		               String rejected)
 {
 	this.Fname = Fname;
 	this.Lname = Lname;
@@ -28,6 +30,17 @@ public Applicant (String Fname,
     this.testScores = testScores;
     this.history = history; 
     this.residence = residence;
+    rejected = "";
+}
+
+
+public String getRejected() {
+	return rejected;
+}
+
+
+public void setRejected(String rejected) {
+	this.rejected = rejected;
 }
 
 

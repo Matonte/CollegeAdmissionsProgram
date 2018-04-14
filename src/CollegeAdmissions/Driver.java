@@ -24,7 +24,17 @@ public Driver() {}
 		// Create the "DataBase" want to eventually add these into an xml bean format. 
 		FileWriter fw = new FileWriter("Decisions.csv");
 		 PrintWriter out = new PrintWriter(fw);
-		
+		 
+		 
+		 //header for CSV
+		 out.print( "APPLICANT" );
+		  out.print(',');
+		  out.print("DECISION");
+		  out.print(',');
+		  out.print("REASON FOR REJECTION");
+		  out.println();
+		 
+		//Loading Applicants 
 	   Grades joesGrades = new Grades(5.0,4.3);
 	   TestScore joesACT = new ACT(23);
 	   TestScore joesSAT= new SAT(1843);
@@ -34,7 +44,7 @@ public Driver() {}
        Date joesLastFelony = new Date (115,6,3);
        CriminalHistory joesRap = new CriminalHistory(joesLastFelony);
        
-	  Applicant joeDirt = new Applicant("Joe", "Dirt", 24, joesGrades, joesTests, joesRap, Residence.INDIANA); 	
+	  Applicant joeDirt = new Applicant("Joe", "Dirt", 24, joesGrades, joesTests, joesRap, Residence.INDIANA,""); 	
 	  
 	  Grades samsGrades = new Grades(5.0,4.5);
 	  TestScore samsACT = new ACT(19);
@@ -43,7 +53,7 @@ public Driver() {}
       Date samsLastFelony = new Date (0);
       CriminalHistory samsRap = new CriminalHistory(samsLastFelony);
 	  
-	  Applicant sam = new Applicant("sam", "the grass cat", 19, samsGrades, samsTests, samsRap, Residence.ALABAMA); 	
+	  Applicant sam = new Applicant("sam", "the grass cat", 19, samsGrades, samsTests, samsRap, Residence.ALABAMA,""); 	
 	  
 	  Grades abbyGrades = new Grades(5.0,4.5);
 	  TestScore abbySAT = new SAT(2000);
@@ -52,7 +62,7 @@ public Driver() {}
       Date abbysLastFelony = new Date (0);
       CriminalHistory abbysRap = new CriminalHistory(abbysLastFelony);
       
-      Applicant abbyNormal = new Applicant("Abby", "Normal", 134, abbyGrades, abbyTests, abbysRap, Residence.CALIFORNIA); 	
+      Applicant abbyNormal = new Applicant("Abby", "Normal", 134, abbyGrades, abbyTests, abbysRap, Residence.CALIFORNIA,""); 	
     
       
      Grades briansGrades = new Grades(5.0,3.5);
@@ -63,7 +73,7 @@ public Driver() {}
      CriminalHistory briansRap = new CriminalHistory(samsLastFelony);
       
       
-	  Applicant brianCohen = new Applicant("Brian", "Cohen", 17, briansGrades, briansTests, briansRap,Residence.CALIFORNIA);
+	  Applicant brianCohen = new Applicant("Brian", "Cohen", 33, briansGrades, briansTests, briansRap,Residence.CALIFORNIA,"");
 	  
 	  Grades arthursGrades = new Grades(5.0,4.6);
 	  TestScore arthurACT = new ACT(34);
@@ -72,7 +82,7 @@ public Driver() {}
       Date arthursLastFelony = new Date (100,1,1);
       CriminalHistory arthursRap = new CriminalHistory(arthursLastFelony);
 	  
-	  Applicant kingArthur = new Applicant("King", "Arthur", -2, arthursGrades, arthursTests, arthursRap, Residence.MASSACHEUSSTES); 	
+	  Applicant kingArthur = new Applicant("King", "Arthur", -2, arthursGrades, arthursTests, arthursRap, Residence.MASSACHEUSSTES,""); 	
 	  
 	  
 	  Grades biggusGrades = new Grades(4.0,3.7);
@@ -80,8 +90,8 @@ public Driver() {}
 	  ArrayList<TestScore> biggusTests = new ArrayList<TestScore>();
       biggusTests.add(biggusSAT);
       Date biggusLastFelony = new Date (0);
-      CriminalHistory bigRap = new CriminalHistory(samsLastFelony);
-	  Applicant biggusDickus = new Applicant("Biggus","Dicus", 18, biggusGrades, biggusTests, bigRap, Residence.KENTUCKY);
+      CriminalHistory bigRap = new CriminalHistory(biggusLastFelony);
+	  Applicant biggusDickus = new Applicant("Biggus","Dicus", 18, biggusGrades, biggusTests, bigRap, Residence.CALIFORNIA,"");
 	  
 	  
 	  Grades badnameGrades = new Grades(4.0,3.7);
@@ -89,8 +99,8 @@ public Driver() {}
 	  ArrayList<TestScore> badnameTests = new ArrayList<TestScore>();
       badnameTests.add(badnameSAT);
       Date badnameLastFelony = new Date (0);
-      CriminalHistory badRap = new CriminalHistory(samsLastFelony);
-	  Applicant badName = new Applicant("Bad","NaMe", 18, badnameGrades, badnameTests, badRap, Residence.CALIFORNIA);
+      CriminalHistory badRap = new CriminalHistory(badnameLastFelony);
+	  Applicant badName = new Applicant("Bad","NaMe", 18, badnameGrades, badnameTests, badRap, Residence.CALIFORNIA,"");
 	  
 	  
 	  
@@ -101,7 +111,7 @@ public Driver() {}
       fatTests.add(fatACT);
       Date fattyLastFelony = new Date (0);
       CriminalHistory creoRap = new CriminalHistory(fattyLastFelony);
-      Applicant misterCreostole = new Applicant("The Guy" ,"Who Ate Everything and Exploded", 25, fattysGrades, fatTests, creoRap,Residence.TEXAS); 	
+      Applicant misterCreostole = new Applicant("The Guy" ,"Who Ate Everything and Exploded", 25, fattysGrades, fatTests, creoRap,Residence.TEXAS,""); 	
 	  
 	  // Load Applicants
 	  ArrayList<Applicant> theApplicants = new ArrayList();
@@ -121,6 +131,8 @@ public Driver() {}
 		  out.print( i.getFname() + " " + i.getLname()  );
 		  out.print(',');
 		  out.print("REJECTED.");
+		  out.print(',');
+		  out.print(i.getRejected());
 		  out.println();
 	      }
 	  /*
