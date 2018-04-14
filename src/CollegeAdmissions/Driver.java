@@ -1,7 +1,13 @@
 package CollegeAdmissions;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class Driver {
 
@@ -10,9 +16,14 @@ public Driver() {}
 	
 
      // Driver File (My "model")
-	public static void main (String args[])
+	public static void main (String args[]) throws IOException 
 	{
-		// Create the "DataBase"
+		// The fileWriter utility 
+		
+		
+		// Create the "DataBase" want to eventually add these into an xml bean format. 
+		FileWriter fw = new FileWriter("Decisions.csv");
+		 PrintWriter out = new PrintWriter(fw);
 		
 	   Grades joesGrades = new Grades(5.0,4.3);
 	   TestScore joesACT = new ACT(23);
@@ -103,11 +114,50 @@ public Driver() {}
 	  theApplicants.add(misterCreostole);
 	  theApplicants.add(badName);
 	  
-	  //Make decisions that print to console or to a text file
+	  //Make decisions that print to console or to a csv file
 	  DecisionEngine.autoreject(theApplicants);
-	  DecisionEngine.autoaccept(theApplicants);
+	  for(Applicant i:DecisionEngine.dinged)
+	      {
+		  out.print( i.getFname() + " " + i.getLname()  );
+		  out.print(',');
+		  out.print("REJECTED.");
+		  out.println();
+	      }
+	  /*
+	  Iterator it =  DecisionEngine.dingedwithReason.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pair = (Map.Entry)it.next();
+	        out.print(pair.getKey().toString());
+	        out.print(pair.getValue().toString());
+	        out.println();
+	        it.remove(); // avoids a ConcurrentModificationException
+	  */
+	        DecisionEngine.autoaccept(theApplicants);
+	  for(Applicant i:DecisionEngine.welcome)
+      	{
+		  out.print( i.getFname() + " " + i.getLname()  );
+		  out.print(',');
+		  out.print("ACCEPTED.");
+		  out.println();
+      	}
 	  DecisionEngine.sendWLnotice(theApplicants);
+	  for(Applicant i:theApplicants)
+    	{
+		  out.print( i.getFname() + " " + i.getLname()  );
+		  out.print(',');
+		  out.print("DETERMINATION PENDING.");
+		  out.println();
+    	}
 	  
+	  // Close writing aparatus 
+	  //Flush the output to the file
+	   out.flush();
+	       
+	   //Close the Print Writer
+	   out.close();
+	       
+	   //Close the File Writer
+	   fw.close();       
 	}
 	
 }
