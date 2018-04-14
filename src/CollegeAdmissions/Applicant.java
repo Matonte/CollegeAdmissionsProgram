@@ -10,7 +10,7 @@ public class Applicant {
 	private Grades grades; 
 	private ArrayList<TestScore> testScores;
 	private CriminalHistory history;
-	private String residence;
+	private Residence residence;
 	
 // Constructor 
 public Applicant (String Fname,
@@ -19,7 +19,7 @@ public Applicant (String Fname,
 		               Grades grades, 
 		               ArrayList<TestScore> testScores,
 		               CriminalHistory history,
-		               String residence)
+		               Residence residence)
 {
 	this.Fname = Fname;
 	this.Lname = Lname;
@@ -64,11 +64,11 @@ public void setHistory(CriminalHistory history) {
 	this.history = history;
 }
 
-public String getResidence() {
+public Residence getResidence() {
 	return residence;
 }
 
-public void setResidence(String residence) {
+public void setResidence(Residence residence) {
 	this.residence = residence;
 }
 

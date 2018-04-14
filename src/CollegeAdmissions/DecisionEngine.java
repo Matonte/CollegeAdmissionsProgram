@@ -84,7 +84,7 @@ public class DecisionEngine {
 			if( 
 				i.getGrades().getScale()/ i.getGrades().getGpa() >= minAutoGPA && 
 				(
-				   i.getResidence().equalsIgnoreCase("California") && i.getAge() <= isCollegeAgeMax && i.getAge() >= isCollegeAgeMin||
+				   i.getResidence().name() == "CALIFORINA" && i.getAge() <= isCollegeAgeMax && i.getAge() >= isCollegeAgeMin||
 				   i.getAge() >= senior
 				   )
 				// Must have taken at least one test to be accepted. The iterator will 
