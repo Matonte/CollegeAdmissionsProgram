@@ -30,8 +30,29 @@ public Applicant (String Fname,
     this.testScores = testScores;
     this.history = history; 
     this.residence = residence;
-    rejected = "";
+    this.rejected = rejected;
 }
+
+//partial constructor 
+public Applicant (String Fname,
+        String Lname,
+        int age, 
+        Grades grades, 
+        ArrayList<TestScore> testScores,
+        CriminalHistory history,
+        Residence residence)
+{
+this.Fname = Fname;
+this.Lname = Lname;
+this.age = age;
+this.grades = grades;
+this.testScores = testScores;
+this.history = history; 
+this.residence = residence;
+rejected = "";
+}
+
+
 
 
 public String getRejected() {

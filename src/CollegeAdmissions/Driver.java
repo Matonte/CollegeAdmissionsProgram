@@ -44,7 +44,7 @@ public Driver() {}
        Date joesLastFelony = new Date (115,6,3);
        CriminalHistory joesRap = new CriminalHistory(joesLastFelony);
        
-	  Applicant joeDirt = new Applicant("Joe", "Dirt", 24, joesGrades, joesTests, joesRap, Residence.INDIANA,""); 	
+	  Applicant joeDirt = new Applicant("Joe", "Dirt", 24, joesGrades, joesTests, joesRap, Residence.INDIANA); 	
 	  
 	  Grades samsGrades = new Grades(5.0,4.5);
 	  TestScore samsACT = new ACT(19);
@@ -53,7 +53,7 @@ public Driver() {}
       Date samsLastFelony = new Date (0);
       CriminalHistory samsRap = new CriminalHistory(samsLastFelony);
 	  
-	  Applicant sam = new Applicant("sam", "the grass cat", 19, samsGrades, samsTests, samsRap, Residence.ALABAMA,""); 	
+	  Applicant sam = new Applicant("sam", "the grass cat", 19, samsGrades, samsTests, samsRap, Residence.ALABAMA); 	
 	  
 	  Grades abbyGrades = new Grades(5.0,4.5);
 	  TestScore abbySAT = new SAT(2000);
@@ -62,7 +62,7 @@ public Driver() {}
       Date abbysLastFelony = new Date (0);
       CriminalHistory abbysRap = new CriminalHistory(abbysLastFelony);
       
-      Applicant abbyNormal = new Applicant("Abby", "Normal", 134, abbyGrades, abbyTests, abbysRap, Residence.CALIFORNIA,""); 	
+      Applicant abbyNormal = new Applicant("Abby", "Normal", 134, abbyGrades, abbyTests, abbysRap, Residence.CALIFORNIA); 	
     
       
      Grades briansGrades = new Grades(5.0,3.5);
@@ -73,7 +73,7 @@ public Driver() {}
      CriminalHistory briansRap = new CriminalHistory(samsLastFelony);
       
       
-	  Applicant brianCohen = new Applicant("Brian", "Cohen", 33, briansGrades, briansTests, briansRap,Residence.CALIFORNIA,"");
+	  Applicant brianCohen = new Applicant("Brian", "Cohen", 33, briansGrades, briansTests, briansRap,Residence.CALIFORNIA);
 	  
 	  Grades arthursGrades = new Grades(5.0,4.6);
 	  TestScore arthurACT = new ACT(34);
@@ -82,7 +82,7 @@ public Driver() {}
       Date arthursLastFelony = new Date (100,1,1);
       CriminalHistory arthursRap = new CriminalHistory(arthursLastFelony);
 	  
-	  Applicant kingArthur = new Applicant("King", "Arthur", -2, arthursGrades, arthursTests, arthursRap, Residence.MASSACHEUSSTES,""); 	
+	  Applicant kingArthur = new Applicant("King", "Arthur", -2, arthursGrades, arthursTests, arthursRap, Residence.MASSACHEUSSTES); 	
 	  
 	  
 	  Grades biggusGrades = new Grades(4.0,3.7);
@@ -91,7 +91,7 @@ public Driver() {}
       biggusTests.add(biggusSAT);
       Date biggusLastFelony = new Date (0);
       CriminalHistory bigRap = new CriminalHistory(biggusLastFelony);
-	  Applicant biggusDickus = new Applicant("Biggus","Dicus", 18, biggusGrades, biggusTests, bigRap, Residence.CALIFORNIA,"");
+	  Applicant biggusDickus = new Applicant("Biggus","Dicus", 18, biggusGrades, biggusTests, bigRap, Residence.CALIFORNIA);
 	  
 	  
 	  Grades badnameGrades = new Grades(4.0,3.7);
@@ -100,18 +100,16 @@ public Driver() {}
       badnameTests.add(badnameSAT);
       Date badnameLastFelony = new Date (0);
       CriminalHistory badRap = new CriminalHistory(badnameLastFelony);
-	  Applicant badName = new Applicant("Bad","NaMe", 18, badnameGrades, badnameTests, badRap, Residence.CALIFORNIA,"");
+	  Applicant badName = new Applicant("Bad","NaMe", 18, badnameGrades, badnameTests, badRap, Residence.CALIFORNIA);
 	  
-	  
-	  
-	  
+
 	  Grades fattysGrades = new Grades(5.0,3.3);
 	  TestScore fatACT = new ACT(24);
 	  ArrayList<TestScore> fatTests = new ArrayList();
       fatTests.add(fatACT);
       Date fattyLastFelony = new Date (0);
       CriminalHistory creoRap = new CriminalHistory(fattyLastFelony);
-      Applicant misterCreostole = new Applicant("The Guy" ,"Who Ate Everything and Exploded", 25, fattysGrades, fatTests, creoRap,Residence.TEXAS,""); 	
+      Applicant misterCreostole = new Applicant("The Guy" ,"Who Ate Everything and Exploded", 25, fattysGrades, fatTests, creoRap,Residence.TEXAS); 	
 	  
 	  // Load Applicants
 	  ArrayList<Applicant> theApplicants = new ArrayList();
@@ -135,17 +133,9 @@ public Driver() {}
 		  out.print(i.getRejected());
 		  out.println();
 	      }
-	  /*
-	  Iterator it =  DecisionEngine.dingedwithReason.entrySet().iterator();
-	    while (it.hasNext()) {
-	        Map.Entry pair = (Map.Entry)it.next();
-	        out.print(pair.getKey().toString());
-	         out.print(',');
-	        out.print(pair.getValue().toString());
-	        out.println();
-	        it.remove(); // avoids a ConcurrentModificationException
-	  */
-	        DecisionEngine.autoaccept(theApplicants);
+
+	  DecisionEngine.autoaccept(theApplicants);
+	  
 	  for(Applicant i:DecisionEngine.welcome)
       	{
 		  out.print( i.getFname() + " " + i.getLname()  );
